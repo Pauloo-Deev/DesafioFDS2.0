@@ -1,0 +1,50 @@
+.App {
+  height: 100vh;
+
+  justify-content: center;
+  justify-items: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  flex-direction: column;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 20px;
+  height: 40px;
+  width: 90px;
+  border-radius: 15px;
+
+  font-weight: 500;
+  background-color: aqua;
+}
+
+.dados {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  color: #fff;
+  font-weight: 400;
+}
