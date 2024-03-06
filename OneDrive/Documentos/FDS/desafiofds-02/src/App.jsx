@@ -5,6 +5,12 @@ import "./App.css";
 
 function App() {
   const [currentCep, setCurrentCep] = useState(0);
+  const [currentEstado, setCurrentEstado] = useState();
+  const [currentCidade, setCurrentCidade] = useState();
+  const [currentBairro, setCurrentBairro] = useState();
+  const [currentRua, setCurrentRua] = useState();
+  const [currentCEP, setCurrentCEP] = useState();
+  const [currentDDD, setCurrentDDD] = useState();
 
   const getCep = (e) => setCurrentCep(e.target.value.replace(/\D/g, ""));
 
@@ -14,13 +20,20 @@ function App() {
     const resp = await axios.get(
       `https://viacep.com.br/ws/${currentCep}/json/`
     );
+    setCurrentEstado(resp.data.uf);
+    setCurrentCidade(resp.data.localidade);
+    setCurrentBairro(resp.data.bairro);
+    setCurrentRua(resp.data.logradouro);
+    setCurrentCEP(resp.data.cep);
+    setCurrentDDD(resp.data.ddd);
+
     console.log(
       ` Estado: ${resp.data.uf}\n`,
       `Cidade: ${resp.data.localidade}\n`,
       `Bairro: ${resp.data.bairro}\n`,
       `Rua: ${resp.data.logradouro}\n`,
       `CEP: ${resp.data.cep}\n`,
-      `DDD: ${resp.data.ddd}\n`,
+      `DDD: ${resp.data.ddd}\n`
     );
   }
 
@@ -35,6 +48,18 @@ function App() {
           Consultar
         </button>
       </form>
+      <div className="dados">
+        {currentEstado && (
+          <>
+            <span>Estado: {currentEstado}</span>
+            <span>Cidade: {currentCidade}</span>
+            <span>Bairro: {currentBairro}</span>
+            <span>Rua: {currentRua}</span>
+            <span>Cep: {currentCEP}</span>
+            <span>DDD: {currentDDD}</span>
+          </>
+        )}
+      </div>
     </div>
   );
 }

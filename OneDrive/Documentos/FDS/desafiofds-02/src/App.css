@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   text-align: center;
+
+  flex-direction: column;
 }
 
 .label-input {
@@ -36,4 +38,13 @@ button {
 
   font-weight: 500;
   background-color: aqua;
+}
+
+.dados {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  color: #fff;
+  font-weight: 400;
 }
